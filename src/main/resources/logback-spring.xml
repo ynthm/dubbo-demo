@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <property name="FILE_LOG_PATTERN"
-              value="%date{ISO8601} [%thread] %-5level %logger{50} L%-4L %msg%n"/>
+              value="%date{ISO8601} [%thread] %-5level %logger{50} L%-4L [%X{user}] %msg%n"/>
 
     <property name="DEBUG_FILE_LOG_PATTERN"
               value="%d{MM-dd HH:mm:ss} [%-22.22thread] %highlight(%-5level) %cyan(%-50.50logger) L%-4L %msg%n"/>

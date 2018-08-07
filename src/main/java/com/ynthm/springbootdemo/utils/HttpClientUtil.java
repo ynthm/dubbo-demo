@@ -293,7 +293,6 @@ private static class SingletonHolder {
         }
 
         HttpPost httpost = new HttpPost(url);
-
         // 设置header
         httpost.setHeader("Content-type", "application/json");
         if (headers != null) {

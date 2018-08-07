@@ -1,0 +1,12 @@
+spring:
+ servlet:
+  multipart:
+    enabled: true
+    max-file-size: 10MB
+
+logging:
+  level:
+    com.ynthm: info
+  path: /var/logs
+
+upload.dir: /var/upload

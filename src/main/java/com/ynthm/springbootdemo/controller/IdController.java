@@ -9,15 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class IdController {
 
-    @GetMapping("/test")
-    public String index()
-    {
-        return "uploadForm";
-    }
-
-    @GetMapping("/index")
-    public String upload()
-    {
-        return "redirect:/index.html";
+    @GetMapping("/")
+    public String index() {
+        return "redirect:/index";
     }
 }
