@@ -6,8 +6,9 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.List;
 
 /**
  * 角色
@@ -23,11 +24,17 @@ public class Role extends BaseEntity {
     /**
      * 角色名称
      */
-    private String name;
+    @Column(name = "NAME", length = 50)
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private RoleName name;
 
     /**
      * 角色描述
      */
     private String comment;
+
+    @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
+    private List<User> users;
 
 }

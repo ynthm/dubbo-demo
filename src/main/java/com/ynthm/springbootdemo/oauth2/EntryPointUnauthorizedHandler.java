@@ -16,8 +16,10 @@ import java.io.IOException;
 @Component
 public class EntryPointUnauthorizedHandler implements AuthenticationEntryPoint {
     @Override
-    public void commence(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
-        httpServletResponse.setHeader("Access-Control-Allow-Origin", "*");
-        httpServletResponse.setStatus(401);
+    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException e) throws IOException, ServletException {
+        // response.setHeader("Access-Control-Allow-Origin", "*");
+        // response.setStatus(401);
+        response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
+
     }
 }

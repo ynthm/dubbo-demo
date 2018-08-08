@@ -23,6 +23,19 @@ spring:
       enabled: true
   messages:
       basename: i18n/messages
+  thymeleaf:
+    #开发时关闭缓存,不然没法看到实时页面
+    cache: false
+    mode: LEGACYHTML5
 logging:
   level:
     root: warn
+
+jwt:
+  header: Authorization
+  secret: mySecret
+  expiration: 604800
+  route:
+    authentication:
+      path: /auth
+      refresh: /users/refresh

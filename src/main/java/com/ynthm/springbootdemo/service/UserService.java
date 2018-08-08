@@ -3,6 +3,7 @@ package com.ynthm.springbootdemo.service;
 import com.ynthm.springbootdemo.infrastructure.dao.RoleDao;
 import com.ynthm.springbootdemo.infrastructure.dao.UserDao;
 import com.ynthm.springbootdemo.infrastructure.rbac.Role;
+import com.ynthm.springbootdemo.infrastructure.rbac.RoleName;
 import com.ynthm.springbootdemo.infrastructure.rbac.User;
 import com.ynthm.springbootdemo.infrastructure.util.JwtTokenUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -64,7 +65,7 @@ public class UserService {
         Role defaultRole = roleDao.findByName("ROLE_USER");
         if (defaultRole == null) {
             defaultRole = new Role();
-            defaultRole.setName("ROLE_USER");
+            defaultRole.setName(RoleName.ROLE_ADMIN);
             defaultRole = roleDao.save(defaultRole);
         }
 
@@ -76,7 +77,7 @@ public class UserService {
 
 
     public String refreshToken(String oldToken) {
-        String token = oldToken.substring("Bearer ".length());
+        String token = oldToken.substring(7);
         if (!jwtTokenUtil.isTokenExpired(token)) {
             return jwtTokenUtil.refreshToken(token);
         }
