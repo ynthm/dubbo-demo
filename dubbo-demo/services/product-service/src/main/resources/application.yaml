@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: product-service
+  profiles:
+    active: dev
+nacos:
+  config:
+    server-addr: 127.0.0.1:8848
+    username: nacos
+    password: nacos
+    type: yaml
+    data-id: product-service.yaml
+    namespace: 1b3ce3e3-58a8-4829-a330-16c6628d5455

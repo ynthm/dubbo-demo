@@ -1,0 +1,17 @@
+nacos:
+  config:
+    namespace: 1b3ce3e3-58a8-4829-a330-16c6628d5455
+  discovery:
+    server-addr: 127.0.0.1:8848
+    username: nacos
+    password: nacos
+dubbo:
+  registry:
+    address: nacos://${nacos.discovery.server-addr}/?username=${nacos.discovery.username}&password=${nacos.discovery.password}
+
+inventory:
+  service:
+    version: 1.0.0
+product:
+  service:
+    version: 1.0.0
